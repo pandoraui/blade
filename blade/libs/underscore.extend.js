@@ -108,7 +108,7 @@
     var urlParams = {};
     var match, name, value, isArray;
 
-    url = decodeURIComponent(url);
+    //url = decodeURIComponent(url);
     while (match = searchReg.exec(url)) {
       name = match[1];
       value = match[2];
