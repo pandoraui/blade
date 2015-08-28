@@ -5218,3 +5218,9 @@ input[type=text].place_search:empty {
     -webkit-box-shadow: 10px 0 0 #fff,-10px 0 0 #fff;
     box-shadow: 10px 0 0 #fff,-10px 0 0 #fff
 }
+
+
+.header h1{
+    font-size: 18px;
+    font-weight: bold;
+}
