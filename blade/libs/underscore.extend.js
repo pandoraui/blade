@@ -343,7 +343,7 @@
     // @return {boolean} 返回值
     isLeapYear: function (year) {
       //传入为时间格式需要处理
-      if (_.dateUtil.isDate(year)) year = year.getFullYear()
+      if (this.isDate(year)) year = year.getFullYear()
       if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) return true;
       return false;
     },
@@ -355,11 +355,11 @@
     getDaysOfMonth: function (year, month) {
       //自动减一以便操作
       month--;
-      if (_.dateUtil.isDate(year)) {
+      if (this.isDate(year)) {
         month = year.getMonth(); //注意此处月份要加1，所以我们要减一
         year = year.getFullYear();
       }
-      return [31, _.dateUtil.isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+      return [31, this.isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
     },
 
     // @description 获取一个月份1号是星期几，注意此时的月份传入时需要自主减一
