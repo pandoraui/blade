@@ -308,6 +308,7 @@
     * @return {string} 常用格式化字符串
     */
     format: function (date, format) {
+      typeof date === 'number' && (date = new Date(date));  //date 可以传入时间戳
       if (arguments.length < 2 && !date.getTime) {
         format = date;
         date = new Date();
@@ -318,17 +319,17 @@
           case "y": return (date.getFullYear() + "").slice(2);
           case "Y": return date.getFullYear();
           case "m": return date.getMonth() + 1;
-          case "M": return _.dateUtil.formatNum(date.getMonth() + 1);
+          case "M": return this.formatNum(date.getMonth() + 1);
           case "d": return date.getDate();
-          case "D": return _.dateUtil.formatNum(date.getDate());
+          case "D": return this.formatNum(date.getDate());
           case "h": return date.getHours();
-          case "H": return _.dateUtil.formatNum(date.getHours());
+          case "H": return this.formatNum(date.getHours());
           case "f": return date.getMinutes();
-          case "F": return _.dateUtil.formatNum(date.getMinutes());
+          case "F": return this.formatNum(date.getMinutes());
           case "s": return date.getSeconds();
-          case "S": return _.dateUtil.formatNum(date.getSeconds());
+          case "S": return this.formatNum(date.getSeconds());
         }
-      });
+      }.bind(this));
     },
     // @description 是否为为日期对象，该方法可能有坑，使用需要慎重
     // @param year {num} 日期对象
